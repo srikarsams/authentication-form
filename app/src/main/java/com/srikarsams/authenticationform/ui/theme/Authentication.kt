@@ -1,5 +1,6 @@
 package com.srikarsams.authenticationform.ui.theme
 
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -14,6 +15,7 @@ import com.srikarsams.authenticationform.model.AuthenticationEvent
 import com.srikarsams.authenticationform.model.AuthenticationState
 import com.srikarsams.authenticationform.model.AuthenticationViewModel
 
+@ExperimentalAnimationApi
 @Composable
 fun Authentication() {
     val viewModel: AuthenticationViewModel = viewModel()
@@ -27,6 +29,7 @@ fun Authentication() {
     }
 }
 
+@ExperimentalAnimationApi
 @Composable
 fun AuthenticationContent(
     modifier: Modifier = Modifier,
@@ -52,6 +55,11 @@ fun AuthenticationContent(
                 },
                 onAuthenticate = {
                     handleEvent(AuthenticationEvent.Authenticate)
+                },
+                satisfiedRequirements = authenticationState.passwordRequirements,
+                enableAuthentication = authenticationState.isFormValid(),
+                toggleAuthentication = {
+                    handleEvent(AuthenticationEvent.ToggleAuthenticationMode)
                 }
             )
         }

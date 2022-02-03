@@ -3,6 +3,7 @@ package com.srikarsams.authenticationform
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -12,6 +13,7 @@ import com.srikarsams.authenticationform.ui.theme.Authentication
 import com.srikarsams.authenticationform.ui.theme.AuthenticationFormTheme
 
 class MainActivity : ComponentActivity() {
+    @ExperimentalAnimationApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -30,6 +32,7 @@ fun Greeting(name: String) {
     Text(text = "Hello $name!")
 }
 
+@ExperimentalAnimationApi
 @Preview()
 @Composable
 fun DefaultPreview() {
