@@ -62,6 +62,11 @@ fun AuthenticationContent(
                     handleEvent(AuthenticationEvent.ToggleAuthenticationMode)
                 }
             )
+            authenticationState.error?.let { error ->
+                AuthenticationErrorDialog(error = error) {
+                    handleEvent(AuthenticationEvent.ErrorDismissed)
+                }
+            }
         }
     }
 }
